@@ -64,6 +64,11 @@ use sudo ALL.__ You have been warned.
 On a CentOS system one creates a group "docker" and adds the group to
 the user's groups via usermod command.
 
+```
+sudo groupadd docker
+sudo usermod -a -G docker myusername
+```
+
 Creating the Docker Image
 -------------------------
 
@@ -73,7 +78,8 @@ __build.sh__ script.
 There will be intermediate delta images left behind (you can see them
 with "docker images --all"). Leave them there for now as they can
 significantly speed up the image build process in case there are any
-problems. Once done and everything working you probably want to issue
+problems and you need to modify the Dockerfile.
+Once done and everything is working you probably want to issue
 a "docker system prune -f" command, to reclaim all those GBs of wasted
 space in /var.
 
